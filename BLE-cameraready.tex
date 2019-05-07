@@ -136,19 +136,19 @@ BLEビーコンの受信機との距離による減衰や，障害物による�
 
 
 % 図の挿入
-\begin{figure}[ht]
+\begin{figure}[t]
     \centering
     \includegraphics[width=3cm]{ble.png}
     \caption{BLEビーコン}
     \label{beacon}
    \end{figure}
-\begin{figure}[ht]
+\begin{figure}[t]
     \centering
     \includegraphics[width=7cm]{regisW2.png}
     \caption{冷蔵庫の状態と設置したビーコン}
     \label{freezer}
 \end{figure}
-\begin{figure}[ht]
+\begin{figure}[t]
     \centering
     \includegraphics[width=7cm]{kinkoW.png}
     \caption{金庫の状態と設置したビーコン}
@@ -174,16 +174,16 @@ BLEビーコンの状態変化による電波強度の変化を利用した研�
 
 \subsection{電波強度のデータ収集対象及び前提}
 
-本研究では受信機としてスマートフォンを使用するため，専用のAndroidアプリケーション(図\ref{phoneApp})を作成し電波強度の情報を収集する.
+本研究では受信機としてスマートフォンを使用するため，専用のAndroidアプリケーションを作成し電波強度の情報を収集する.
 その際BLEビーコンを識別するためのUUID，major，minorをBLEビーコンを設置する対象と紐付けし，どのBLEビーコンの値がどの対象物の物なのか把握できるようにしている.
 またBLEビーコンの電波送信設定は小さな変化も検知可能にするため送信強度は0dBm，送信間隔は100msと設定した.
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[height=5.5cm]{application.jpg}
-    \caption{スマートフォン用アプリ}
-    \label{phoneApp}
-\end{figure}
+%\begin{figure}[ht]
+    %\centering
+    %\includegraphics[height=5.5cm]{application.jpg}
+    %\caption{スマートフォン用アプリ}
+    %\label{phoneApp}
+%\end{figure}
 % このアプリケsーションはBLEビーコンの受信電波強度を記録するだけではなく，リアルタイムでローパスフィルタの適用と安定センシング区間の判定及びそのネガポジ判定が可能である.
 
 
@@ -197,7 +197,21 @@ BLEビーコンの状態変化による電波強度の変化を利用した研�
 BLEビーコンの取り付け位置や付け方を変えることで電波強度の変化に現れる特徴を変えられる.
 % BLEビーコンの電波は取り付け位置や対象の材質により対象物が状態変化した際の電波強度変化の仕方が異なる.
 例えば箱型で蓋の開閉を行う金庫のようなものであれば，BLEビーコンを箱内部の底に設置する場合と蓋の裏に設置する場合が考えられる(図\ref{adapter}).
-さらに，対象の材質が電波を通しやすいために状態変化しても電波強度に大きな変化が現れないモノもあるため，図\ref{adapter}のように電波に指向性をもたせるアダプタを取り付けることで電波強度にはっきりとした変化が出るようにする.
+さらに，対象の材質が電波を通しやすいために状態変化しても電波強度に大きな変化が現れないモノもあるため，図\ref{adapter_only}のような電波に指向性をもたせるアダプタを取り付けることで電波強度にはっきりとした変化が出るようにする.
+% 図の挿入
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=8cm]{adapta_compare2.png}
+    \caption{指向性アダプタ有り無しの画像}
+    \label{adapter}
+\end{figure}
+% 図の挿入
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=8cm]{adapta.png}
+    \caption{本研究で使用した指向性アダプタ}
+    \label{adapter_only}
+\end{figure}
 この指向性アダプタとは　図M　のようなパラボラアンテナのような形状の金属や陶器のことを指し，これを取り付けることで電波が拡散せず収束して一方向のみへ飛ぶようになる.
 その結果，特定の方向に向かって飛ぶ電波が強まり，状態変化によって電波強度に大きな変化が現れるようになる.
 
@@ -209,29 +223,14 @@ BLEビーコンを金庫内部の底につけた場合にはあまり大きな�
 
 
 % 図の挿入
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=8cm]{adapta.png}
-    \caption{本研究で使用した指向性アダプタ}
-    \label{adapter_only}
-\end{figure}
-
-% 図の挿入
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=8cm]{adapta_compare2.png}
-    \caption{指向性アダプタ有り無しの画像}
-    \label{adapter}
-\end{figure}
-
-
-% 図の挿入
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
     \includegraphics[width=8cm]{in-out.png}
     \caption{ビーコン取り付け位置毎の電波強度変化}
     \label{transform-data}
 \end{figure}
+
+
 %ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 %ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
 
@@ -239,7 +238,7 @@ BLEビーコンを金庫内部の底につけた場合にはあまり大きな�
 本手法ではBLEビーコンから発せられる電波をスマートフォンで受信し，その受信強度の値から状態を推定する.
 図\ref{bank-opcl}は金庫の開閉を行ったときの電波強度の値に，移動平均を用いたローパスフィルタをかけて小さな揺らぎを除去したグラフである.
 
-\begin{figure}[t]
+\begin{figure}[b]
  \centering
  \includegraphics[width=8cm]{lowpath_compare.png}
  \caption{ローパスフィルタ適用前後の電波強度グラフ}
@@ -266,10 +265,12 @@ BLEビーコンを金庫内部の底につけた場合にはあまり大きな�
 
 物体が状態変化をせず移動した場合，徐々に電波強度は変化するため単純な閾値を用いた推定では長距離移動し電波強度が大幅に減衰した際に誤判定が起こってしまう.
 そこで取得したすべてのデータから数サンプルごとに移動平均を求め，ある値に着目した際にその値が直前の値から上限下限閾値の範囲内であり，かつ一定時間以上経過している場合に安定センシング区間とする.
-
-
 この時の上限・下限閾値を今回使用したBLEビーコンの特徴や推定対象に合わせ定める.
 
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+図\ref{nomal-data}はBLEビーコンをただ置いた状態での電波強度の値にローパスフィルタを適用したグラフであり，ここからBLEビーコンの電波は周期的に電波強度の変化が見られることがわかる.
+このBLEビーコン特有の周期的な強度変化により安定センシング区間の判定が不安定になることがあるため，適切な閾値を設定する必要がある.
+対象の状態変化による電波強度の変化とBLEビーコン特有の電波強度の変化を考慮して動的に閾値を設定する.
 % 図の挿入
 \begin{figure}[b]
     \centering
@@ -277,11 +278,6 @@ BLEビーコンを金庫内部の底につけた場合にはあまり大きな�
     \caption{BLEビーコンを遮蔽物のない状態で測定した電波強度グラフ}
     \label{nomal-data}
 \end{figure}
-
-%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-図\ref{nomal-data}はBLEビーコンをただ置いた状態での電波強度の値にローパスフィルタを適用したグラフであり，ここからBLEビーコンの電波は周期的に電波強度の変化が見られることがわかる.
-このBLEビーコン特有の周期的な強度変化により安定センシング区間の判定が不安定になることがあるため，適切な閾値を設定する必要がある.
-対象の状態変化による電波強度の変化とBLEビーコン特有の電波強度の変化を考慮して動的に閾値を設定する.
 
 %pythonプログラムの説明
 オフラインプログラムでは最初に受信電波強度とその受信時間が記録されたファイルからデータを読み込む.
@@ -317,7 +313,7 @@ BLEビーコンを設置する対象は，冷蔵庫，金庫，座椅子とし�
 
 \subsection{実験端末の選定}
 
-\begin{figure}[ht]
+\begin{figure}[b]
     \centering
     \includegraphics[width=8cm]{mix.png}
     \caption{機種ごとの精度比較}
@@ -341,6 +337,12 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
 \subsection{冷蔵庫の開閉における推定精度の測定}
 図\ref{freezer}，図\ref{refrigerator_position}のようにセンサと受信機を設置して評価実験を行った.
 実験は日常の使用を模倣し，冷蔵庫のドアを開けて，中からペットボトルを取り出し，ドアを閉めるという動作をランダムな間隔で行い，その状態変化を捉えられるか評価を行った.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8cm]{refrigerator_position.png}
+    \caption{冷蔵庫と受信機の位置関係図}
+    \label{refrigerator_position}
+\end{figure}
 %@@@@@@@@@@@@@@@@@@@@@@@@
 %時間と閾値の話をして
 
@@ -350,20 +352,6 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
 この時電波強度の変化を大きくさせるため3.2章で述べた指向性アダプタを取り付けた.
 推定結果を図\ref{refrigerator_graph}に，正解率の一覧を表\ref{refrigerator_fig}に示す.
 図\ref{refrigerator_graph}の白色の範囲は安定センシング区間ではない状態を 緑色の範囲はネガティブな状態(ドアが閉まっている状態)を 赤色の範囲はポジティブな状態(ドアが開いている状態)を示している.
-
-同様の実験を3回行った結果1回だけ不正解があり，全体の正解率は98.0％となった.
-誤判定された400秒付近のグラフを見てみると他と比べて受信電波強度の変化が小さく，安定センシング区間と判断されていないことが分かる.
-% このことから安定センシング区間を判定するパラメータを見直すことで誤判定を避けられると考える.
-% しかしかなり高い精度で推定することが出来ているため本手法は冷蔵庫の開閉に有効である.
-
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=8cm]{refrigerator_position.png}
-    \caption{冷蔵庫と受信機の位置関係図}
-    \label{refrigerator_position}
-\end{figure}
-
 \begin{figure}[ht]
     \centering
     \includegraphics[width=8cm]{refrigerator_graph.png}
@@ -371,6 +359,10 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
     \label{refrigerator_graph}
 \end{figure}
 
+同様の実験を3回行った結果1回だけ不正解があり，全体の正解率は98.0％となった.
+誤判定された400秒付近のグラフを見てみると他と比べて受信電波強度の変化が小さく，安定センシング区間と判断されていないことが分かる.
+% このことから安定センシング区間を判定するパラメータを見直すことで誤判定を避けられると考える.
+% しかしかなり高い精度で推定することが出来ているため本手法は冷蔵庫の開閉に有効である.
 
 
 %@@@@@@@@@@@@@@@@@@@@
@@ -394,8 +386,15 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
 
 \subsection{金庫の開閉における推定精度の測定}
 図\ref{safe}，図\ref{kinko_position}のようにセンサと受信機を設置して評価実験を行った.
-金庫は図\ref{kinko_position}に赤丸で示したように3箇所の場所に移動させて蓋の開閉を行い，推定中にモノの移動が行われても状態推定が可能かを確かめた.
+金庫は図\ref{kinko_position}に黒丸で示したように3箇所の場所に移動させて蓋の開閉を行い，推定中にモノの移動が行われても状態推定が可能かを確かめた.
 この時金庫を開けている時間は約30秒程度であり，閉めた状態はランダムに30秒から2分程度継続させた.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8cm]{kinko_position_fig.png}
+    \caption{金庫と受信機の位置関係図}
+    \label{kinko_position}
+\end{figure}
 %@@@@@@@@@@@@@@@@@@@@@@@
 %閾値の話して
 %ちゃんとなんでかの理由も含めれると良いけど
@@ -411,12 +410,6 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
 このため蓋の開閉が終わった後もポジティブな状態と判定されてしまい誤判定が発生したのだと考えられる.
 % また，このことから冷蔵庫と同様に安定センシング区間を判定する閾値などのパラメータを見直すことでこのような誤判定は避けられるのではと考えられる.
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=8cm]{kinko_position_fig.png}
-    \caption{金庫と受信機の位置関係図}
-    \label{kinko_position}
-\end{figure}
 
 \begin{figure}[ht]
     \centering
@@ -455,29 +448,24 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
 推定結果を図\ref{chair_graph}に，正解率の一覧を表\ref{chair_fig}に示す.
 この時安定センシング区間を判定のための閾値はそれぞれ，値の閾値は±0.25時間の閾値は5秒に設定した.
 
-図\ref{chair_graph}の白色の範囲は安定センシング区間ではない状態を 緑色の範囲はネガティブな状態(人が座っている状態)を 赤色の範囲はポジティブな状態(人が座っていない状態)を示している.
-また，図中の番号は図\ref{zaisu_position}内の番号と対応している.
-同様の行動を3回行った結果，N　％　の精度で状態推定を行う事ができた.
-人体はBLEの電波をさえぎりやすいため人が座っていない時と座っている時の電波強度の変化が大きく，はっきりと差が出ていたためビーコン特有の周期的な変化にも影響されることなく推定することができたと考えられる.
-% この結果から本手法は座椅子の着座状態の推定にも有効であることがわかる.
 
-
-
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
     \includegraphics[width=8cm]{zaisu_position.png}
     \caption{座椅子と受信機の位置関係図}
     \label{zaisu_position}
 \end{figure}
 
-\begin{figure}[ht]
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=8cm]{zaisu_graph.png}
     \caption{座椅子の状態推定結果グラフ}
     \label{chair_graph}
 \end{figure}
 
-\begin{table}[htb]
+
+\begin{table}[h]
     \begin{center}
         \caption{座椅子への着席における状態推定精度}
         \label{chair_fig}
@@ -492,6 +480,11 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
 \end{table}
 
 
+図\ref{chair_graph}の白色の範囲は安定センシング区間ではない状態を 緑色の範囲はネガティブな状態(人が座っている状態)を 赤色の範囲はポジティブな状態(人が座っていない状態)を示している.
+また，図中の番号は図\ref{zaisu_position}内の番号と対応している.
+同様の行動を3回行った結果，N　％　の精度で状態推定を行う事ができた.
+人体はBLEの電波をさえぎりやすいため人が座っていない時と座っている時の電波強度の変化が大きく，はっきりと差が出ていたためビーコン特有の周期的な変化にも影響されることなく推定することができたと考えられる.
+% この結果から本手法は座椅子の着座状態の推定にも有効であることがわかる.
 
 
 %ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
