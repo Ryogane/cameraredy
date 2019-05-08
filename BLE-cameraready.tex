@@ -141,19 +141,22 @@ BLEビーコンの受信機との距離による減衰や，障害物による�
     \includegraphics[width=3cm]{ble.png}
     \caption{BLEビーコン}
     \label{beacon}
-   \end{figure}
+\end{figure}
+
 \begin{figure}[t]
     \centering
     \includegraphics[width=7cm]{regisW2.png}
     \caption{冷蔵庫の状態と設置したビーコン}
     \label{freezer}
 \end{figure}
+
 \begin{figure}[t]
     \centering
     \includegraphics[width=7cm]{kinkoW.png}
     \caption{金庫の状態と設置したビーコン}
     \label{safe}
 \end{figure}
+
 \begin{figure}[t]
     \centering
     \includegraphics[width=8cm]{zaisuW.png}
@@ -396,10 +399,16 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
 \subsection{金庫の開閉における推定精度の測定}
 図\ref{safe}，図\ref{kinko_position}のようにセンサと受信機を設置して評価実験を行った.
 金庫は図\ref{kinko_position}に黒丸で示したように3箇所の場所に移動させて蓋の開閉を行い，推定中にモノの移動が行われても状態推定が可能かを確かめた.
-この時金庫を開けている時間は約30秒程度であり，閉めた状態はランダムに30秒から2分程度継続させた.
+この時，金庫を開けている時間は約20秒程度であり，閉めた状態はランダムに30秒から2分程度継続させた.
+この時冷蔵庫が開いている状態も推定可能にするため安定センシング区間を判定する閾値はそれぞれ，値の閾値を±0.23，時間の閾値を2秒に設定した.
 %@@@@@@@@@@@@@@@@@@@@@@@
 %閾値の話して
 %ちゃんとなんでかの理由も含めれると良いけど
+%# 各種パラメータ
+%filter_size = 10           # ローパスフィルタのフィルターサイズ
+%sz_interval = 4.5          # 安定センシング区間を判断する時間間隔
+%sz_under = 0.23            # 安定センシング区間だと判断する閾値の下限
+%sz_upper = 0.23            # 安定センシング区間だと判断する閾値の上限
 %@@@@@@@@@@@@@@@@@@@@@@@
 
 
