@@ -396,10 +396,16 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 \subsection{金庫の開閉における推定精度の測定}
 図\ref{safe}，図\ref{kinko_position}のようにセンサと受信機を設置して評価実験を行った.
 金庫は図\ref{kinko_position}に黒丸で示したように3箇所の場所に移動させて蓋の開閉を行い，推定中にモノの移動が行われても状態推定が可能かを確かめた.
-この時金庫を開けている時間は約30秒程度であり，閉めた状態はランダムに30秒から2分程度継続させた.
+この時，金庫を開けている時間は約20秒程度であり，閉めた状態はランダムに30秒から2分程度継続させた.
+また，安定センシング区間を判定する閾値はそれぞれ，値の閾値を±0.23，時間の閾値を4.5秒に設定した.
 %@@@@@@@@@@@@@@@@@@@@@@@
 %閾値の話して
 %ちゃんとなんでかの理由も含めれると良いけど
+%# 各種パラメータ
+%filter_size = 10           # ローパスフィルタのフィルターサイズ
+%sz_interval = 4.5          # 安定センシング区間を判断する時間間隔
+%sz_under = 0.23            # 安定センシング区間だと判断する閾値の下限
+%sz_upper = 0.23            # 安定センシング区間だと判断する閾値の上限
 %@@@@@@@@@@@@@@@@@@@@@@@
 
 
@@ -456,7 +462,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 図\ref{chair}，図\ref{zaisu_position}のようにセンサと受信機を設置して評価実験を行った.
 座椅子に座っている時間として30秒から1分30秒程度を，座っていない時間として30秒から2分程度を設定した.
 推定結果を図\ref{chair_graph}に，正解率の一覧を表\ref{chair_fig}に示す.
-この時安定センシング区間を判定のための閾値はそれぞれ，値の閾値は±0.25時間の閾値は5秒に設定した.
+この時安定センシング区間を判定のための閾値はそれぞれ，値の閾値は±0.25，時間の閾値は5秒に設定した.
 
 
 \begin{figure}[h]
@@ -544,19 +550,19 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 
 \begin{thebibliography}{20}
     \bibitem{soumusyo}『平成29年版情報通信白書』: 入手先 〈\url{http://www.soumu.go.jp/johotsusintokei/whitepaper/ja/h29/pdf/n3300000.pdf}〉，p.125，(参照 2019 年 4 月 24 日).
-    \bibitem{TagAndThink}前川拓也，柳沢豊，岡留剛. Tag and Think：センサネットワークを前提としたモノ自身とその状態の推定，情報処理学会研究報告ユビキタスコンピューティングシステム（UBI），2007(14(2007-UBI-013))，pp. 211-218，2007.
+    \bibitem{TagAndThink}前川拓也，柳沢豊，岡留剛. Tag and Think：センサネットワークを前提としたモノ自身とその状態の推定，情報処理学会研究報告ユビキタスコンピューティングシステム（UBI），Vol. 2007，No. (14(2007-UBI-013))，pp. 211-218，2007.
     \bibitem{sairyu}上田泰嵩，梶克彦，河口信夫. 細粒度電力センシングによる浪費電力の検出，マルチメディア、分散、協調とモバイル(DICOMO)シンポジウム論文集，pp. 1817-1821，2010.
-    \bibitem{energy}山田祐輔，加藤丈和，松山隆司. スマートタップネットワークを用いた家電の電力消費パターン解析に基づく人物行動推定，研究報告ユビキタスコンピューティングシステム（UBI），2011(4(2011-UBI-31))，pp. 1-6，2011.
-    \bibitem{WifiChannel}尾原和也，前川卓也，村上友規，アベセカラヒランタ. Wi-Fiチャネル状態情報を用いた教師無し学習によるドアの開閉検知手法，情報処理学会研究報告ヒューマンコンピュータインタラクション（HCI），2018(1(2018-HCI-180))，pp. 1-7，2018.
+    \bibitem{energy}山田祐輔，加藤丈和，松山隆司. スマートタップネットワークを用いた家電の電力消費パターン解析に基づく人物行動推定，研究報告ユビキタスコンピューティングシステム（UBI），Vol. 2011-UBI-31，No. 4，pp. 1-6，2011.
+    \bibitem{WifiChannel}尾原和也，前川卓也，村上友規，アベセカラヒランタ. Wi-Fiチャネル状態情報を用いた教師無し学習によるドアの開閉検知手法，研究報告ユビキタスコンピューティングシステム（UBI），Vol. 2018-UBI-60，No. 1，pp. 1-7，2018.
     \bibitem{bleUse}LINE公式ブログ: 入手先 〈\url{http://official-blog.line.me/ja/archives/73098915.html}〉 (参照 2019 年 4 月 24 日).
-    \bibitem{IoMT}堀川三好，工藤大希，岡本東，村田嘉利. 移動するモノを対象とした Internet of Things の提案，第80回全国大会講演論文集，Vol.2018，No.1，pp. 471-472，2018.
-    \bibitem{tandem}浦野健太，廣井慧，梶克彦，河口信夫. 配布型BLEタグとタンデムスキャナを用いた屋内位置推定手法，情報処理学会論文誌，Vol.60，No.1，pp. 58-75，2019.
-    \bibitem{blespot}渡邉洸，高橋雄太，大坪敦，藤本まなと，荒川豊，安本慶一. BLEビーコンと反響音センシングによる屋内スポット推定，マルチメディア、 分散協調とモバイルシンポジウム2018論文集，2018，pp. 620-626，2018.
-    \bibitem{LANgate}梶 克彦，河口 信夫. 無線LAN環境特異点に基づくゲート通過検出手法，情報処理学会論文誌 Vol.55，No.1，pp. 366-377，2014.
+    \bibitem{IoMT}堀川三好，工藤大希，岡本東，村田嘉利. 移動するモノを対象とした Internet of Things の提案，第80回全国大会講演論文集，Vol. 2018，No. 1，pp. 471-472，2018.
+    \bibitem{tandem}浦野健太，廣井慧，梶克彦，河口信夫. 配布型BLEタグとタンデムスキャナを用いた屋内位置推定手法，情報処理学会論文誌，Vol. 60，No. 1，pp. 58-75，2019.
+    \bibitem{blespot}渡邉洸，高橋雄太，大坪敦，藤本まなと，荒川豊，安本慶一. BLEビーコンと反響音センシングによる屋内スポット推定，マルチメディア、 分散協調とモバイルシンポジウム2018論文集，Vol. 2018，pp. 620-626，2018.
+    \bibitem{LANgate}梶 克彦，河口 信夫. 無線LAN環境特異点に基づくゲート通過検出手法，情報処理学会論文誌 Vol. 55，No. 1，pp. 366-377，2014.
     \bibitem{en-door}Hsi-Yuan Tsai，Guan-Heng Chen，Huang-Chen Lee. Using low-cost，non-sensor-equipped BLE beacons to track people's movements，IPSN '17 Proceedings of the 16th ACM/IEEE International Conference on Information Processing in Sensor Networks，pp. 291-292，2017.
-    \bibitem{BLEpkpk}池田翔太，梶克彦. BLEビーコンをパカパカ，マルチメディア，分散協調とモバイルシンポジウム2016論文集，2016，pp. 899-904，2016.
-    \bibitem{sensing-area}梶克彦，河口信夫. 安定センシング区間検出に基づく3次元歩行軌跡推定手法，情報処理学会論文誌，Vol.57，No.1，pp. 12-24，2016.
-    \bibitem{ips-chube}吉澤実，高崎航，大村廉. 加速度ベース行動認識におけるレスポンス時間短縮のためのパラメータ検討，情報処理学会マルチメディア，分散協調とモバイル（DICOMO2013）シンポジウム論文集，pp. 647-654，2013.
+    \bibitem{BLEpkpk}池田翔太，梶克彦. BLEビーコンをパカパカ，マルチメディア，分散協調とモバイルシンポジウム2016論文集，Vol. 2016，pp. 899-904，2016.
+    \bibitem{sensing-area}梶克彦，河口信夫. 安定センシング区間検出に基づく3次元歩行軌跡推定手法，情報処理学会論文誌，Vol. 57，No. 1，pp. 12-24，2016.
+    \bibitem{ips-chube}吉澤実，高崎航，大村廉. 加速度ベース行動認識におけるレスポンス時間短縮のためのパラメータ検討，マルチメディア、分散協調とモバイルシンポジウム2013論文集，Vol. 2013，pp. 647-654，2013.
     %\bibitem{en-AreaUsed}Rachael Purta，Aaron Striegel. Estimating dining hall usage using bluetooth low energy beacons，UbiComp '17 Proceedings of the 2017 ACM International Joint Conference on Pervasive and Ubiquitous Computing and Proceedings of the 2017 ACM International Symposium on Wearable Computers，pp. 518-523，2017.
 \end{thebibliography}
 
