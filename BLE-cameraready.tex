@@ -39,7 +39,7 @@ BLEビーコンの電波は微弱であるため，環境の変化による電�
 そこで，安定センシング区間という概念を導入し，電波強度が安定している区間を利用し推定精度の向上を試みる.
 見つかった安定センシング区間に対し動的に変更できる閾値を用いて状態推定を行う.
 上記の方法を冷蔵庫の開閉や金庫の開閉，座椅子の着座の状態推定に適用し推定精度を確かめた.
-その結果，冷蔵庫の開閉推定では　N　％　の精度で状態推定でき，金庫の開閉推定では　N　％　の精度で，座椅子の着座推定では　N 　％　の精度で推定できた.
+その結果，冷蔵庫の開閉推定では99.2％の精度で状態推定でき，金庫の開閉推定では93.8％の精度で，座椅子の着座推定では98.9％の精度で推定できた.
 今後は判定のための閾値を見直し精度を高める.
 
 \textgt{\\キーワード} : ビーコン電波による物体の状態推定，安定センシング区間，ライフログ，ローパスフィルタ
@@ -62,13 +62,13 @@ IoTデバイスの増加により家中にそれらが設置されると，そ�
 
 しかし，これらのデータはIoTに対応した家電でないと取得できず，金庫や椅子，扉といった家電以外のモノではセンサが無いためデータ収集が不可能という問題がある.
 この解決策として，(1)加速度センサや回転センサを使う方法と，(2)Wi-Fi電波のチャネルの状態情報を使った方法がある.
-(1)の方法は直接モノの動きを観測できるため安定した精度で状態推定ができる反面，センサー単体での動作が難しく取得したデータの保存・解析に専用の機器が必要である.
+(1)の方法は直接モノの動きを観測できるため安定した精度で状態推定ができる反面，センサー単体での動作が難しく取得したデータの保存・解析に専用の機器が必要である. 
 また(2)の方法では対象物のそれぞれにセンサを付ける必要が無い一方，状態の推定にWi-Fi電波の反射波を用いるという特徴から小さな対象物への適用は不得意である.
 
 そこで本研究では汎用的な機器のみで動作でき，かつ小さな対象物でも高い精度で状態推定できる手法を提案する.
 具体的には日常の生活空間内における家電・家具の内部にBluetooth Low Energyビーコン(以下BLEビーコン)を設置し，送信される電波をスマートフォンで受信した際の受信電波強度をもとにモノの状態推定を行う手法である.
 BLEビーコンは小型・省電力なため長期間の稼働が可能であり，また電波が微弱なので障害物の有無により電波強度が変化しやすく状態推定に適している.
-加えてBLEビーコンの電波はスマートフォンで受信できるため，電波の受信に特別な機器を必要とせず，UUID，major，minorの情報から各BLEビーコンの識別が可能なため，1台のスマートフォンで複数のBLEビーコンを監視できる.
+加えてBLEビーコンの電波はスマートフォンで受信できるため，電波の受信に特別な機器を必要とせず，UUID，major，minorの情報から各BLEビーコンの識別ができるため，1台のスマートフォンで複数のBLEビーコンを監視できる.
 
 システム概要図を図\ref{abst}に示す.
 本手法では，BLEビーコンを金庫や冷蔵庫であれば開閉を行う蓋や扉の部分に，椅子では座面のクッション下へ設置し推定を行う.
@@ -113,8 +113,8 @@ BLEビーコンは小型・省電力なため長期間の稼働が可能であ�
 BluetoothLowEnergyの技術は近年，広告配信や位置推定など様々な用途に使われている.
 例えばSNSサービスを提供しているLINEでは，BLEビーコンを使用して決済ができるサービスを提供している\cite{bleUse}.
 その他にもBLEビーコンの電波は在室検知や位置，状態推定など多くの研究に利用されている.
-在室検知では各個人がビーコンを持ち，室内に設置された受信機で在室や滞在を検知する研究が行われている.[][][].
-またLEビーコンの受信機との距離による減衰や，障害物による電波の減衰などによって変化する電波強度をもとに，複数の受信機を用いて位置の推定や状態の推定をする研究が数多く行われている\cite{IoMT}，\cite{blespot}，\cite{en-door}.%，\cite{tandem}，，\cite{LANgate}，.
+在室検知では各個人がビーコンを持ち，室内に設置された受信機で在室や滞在を検知する研究が行われている\cite{en-AreaUsed}，\cite{Finding_by_Counting}，\cite{dakoku_system}.
+またLEビーコンの受信機との距離による減衰や，障害物による電波の減衰などによって変化する電波強度をもとに，複数の受信機を用いて位置の推定や状態の推定をする研究が数多く行われている\cite{IoMT}，\cite{tandem}，\cite{blespot}，\cite{en-door}.%，\cite{LANgate}，.
 
 これらで利用されているように，BLEビーコンの電波は微弱であるため数mの距離の変化や障害物などにより電波の減衰が起こる.
 この現象を利用し我々は日常の生活空間内におけるモノの状態変化推定を行う.
@@ -138,28 +138,28 @@ BluetoothLowEnergyの技術は近年，広告配信や位置推定など様々�
 
 
 % 図の挿入
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=3cm]{ble.png}
     \caption{BLEビーコン}
     \label{beacon}
    \end{figure}
 
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=7cm]{regisW2.png}
     \caption{冷蔵庫の状態と設置したビーコン}
     \label{freezer}
 \end{figure}
 
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=7cm]{kinkoW.png}
     \caption{金庫の状態と設置したビーコン}
     \label{safe}
 \end{figure}
 
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8cm]{zaisuW.png}
     \caption{座椅子の状態と設置したビーコン}
@@ -204,14 +204,14 @@ BLEビーコンの取り付け位置や付け方を変えると電波強度の�
 例えば箱型で蓋の開閉を行う金庫のようなものであれば，BLEビーコンを箱内部の底に設置する場合と蓋の裏に設置する場合が考えられる(図\ref{adapter}).
 さらに，対象の材質が電波を通しやすいために状態変化しても電波強度に大きな変化が現れないモノもあるため，図\ref{adapter}のように電波に指向性をもたせるアダプタを取り付け電波強度にはっきりとした変化が出るようにする.
 % 図の挿入
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8cm]{adapta_compare2.png}
     \caption{指向性アダプタ有り無しの画像}
     \label{adapter}
 \end{figure}
 % 図の挿入
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8cm]{adapta.png}
     \caption{本研究で使用した指向性アダプタ}
@@ -228,7 +228,7 @@ BLEビーコンを金庫内部の底につけた場合にはあまり大きな�
 
 
 % 図の挿入
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8cm]{in-out.png}
     \caption{ビーコン取り付け位置毎の電波強度変化}
@@ -243,7 +243,7 @@ BLEビーコンを金庫内部の底につけた場合にはあまり大きな�
 本手法ではBLEビーコンから発せられる電波をスマートフォンで受信し，その受信強度の値から状態を推定する.
 図\ref{bank-opcl}は金庫の開閉を行ったときの電波強度の値に，移動平均を用いたローパスフィルタをかけて小さな揺らぎを除去したグラフである.
 
-\begin{figure}[bht]
+\begin{figure}[tbh]
  \centering
  \includegraphics[width=8cm]{lowpath_compare.png}
  \caption{ローパスフィルタ適用前後の電波強度グラフ}
@@ -279,7 +279,7 @@ BLEビーコンを金庫内部の底につけた場合にはあまり大きな�
 
 
 % 図の挿入
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8.5cm]{bokoboko.png}
     \caption{BLEビーコンを遮蔽物のない状態で測定した電波強度グラフ}
@@ -317,11 +317,11 @@ BLEビーコンを金庫内部の底につけた場合にはあまり大きな�
 
 本稿で提案した手法の推定精度を確かめるため，いくつかのモノへBLEビーコンを設置し評価実験を行った.
 BLEビーコンを設置する対象は，冷蔵庫，金庫，座椅子とし，金庫と座椅子については移動を考慮した状態変化に対し推定精度を測定した.
-評価の方法は開閉などの状態変化をランダムな間隔で行い，その推定結果と正解ラベルを比べて正答率を算出して行う.
+評価の方法は開閉などの状態変化をランダムな間隔で行い，その推定結果と正解ラベルを比べて正答率を算出して行った.
 
 \subsection{実験端末の選定}
 
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8cm]{mix.png}
     \caption{機種ごとの精度比較}
@@ -337,9 +337,9 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
 また，Xperia XZ2とNexus 6Pは測定開始直後は測定値が安定せず正しく変化を捉えられていない.
 
 本手法では電波強度の急激な変化と安定センシング区間の判定が重要となるため，測定ノイズが少なく電波を正確に捉えられる必要がある.
-そのためこの3機種のうち一番ノイズが少なく，正解ラベルと比べもっともらしい値を捉えられるZenFone 4を受信機として使用する.
+そのためこの3機種のうち一番ノイズが少なく，正解ラベルと比べもっともらしい値を捉えられるZenFone 4を実験で用いる受信機として使用した.
 また，本研究では金庫などの移動を伴う比較的小さなモノにもBLEビーコンを取り付けるため，使用するBLEビーコンはできるだけ小さい方が望ましい.
-そのため使用するBLEビーコンは，軽量・小型という理由からフォーカスシステムズ社のFCS1301\ref{beacon}を使用する.
+そのためBLEビーコンは軽量・小型という理由からフォーカスシステムズ社のFCS1301\ref{beacon}を使用した.
 
 
 \subsection{冷蔵庫の開閉における推定精度の測定}
@@ -349,7 +349,7 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
 %時間と閾値の話をして
 
 
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8cm]{refrigerator_position.png}
     \caption{冷蔵庫と受信機の位置関係図}
@@ -357,19 +357,19 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
 \end{figure}
 
 
-日常使いにおいて冷蔵庫を開ける動作時間は約7秒程度であるため本実験でもそれを模倣し，閉めている状態はランダムに1分から5分程度の時間を設ける.
+日常使いにおいて冷蔵庫を開ける動作時間は約7秒程度であるため本実験でもそれを模倣し，閉めている状態はランダムに1分から5分程度の時間を設けた.
 この時冷蔵庫が開いている状態も推定可能にするため安定センシング区間を判定する閾値はそれぞれ，値の閾値を±0.23，時間の閾値を2秒に設定した.
 %@@@@@@@@@@@@@@@@@@@@@
 BLEビーコンを扉の棚へ置いただけではあまり電波強度に変化が見られなかったため，電波強度の変化を大きくさせるよう3.2章で述べた指向性アダプタを取り付けた.
 推定結果を図\ref{refrigerator_graph}に，正解率の一覧を表\ref{refrigerator_fig}に示す.
 図\ref{refrigerator_graph}の白色の範囲は安定センシング区間ではない状態を 緑色の範囲はネガティブな状態(ドアが閉まっている状態)を 赤色の範囲はポジティブな状態(ドアが開いている状態)を示している.
-また，表\ref{refrigerator_fig}には各試行における正解率とその累計正解率，及び推定ラベルを張った区間のうち正解した区間の割合を示している.
+また，表\ref{refrigerator_fig}には各試行における正解率とその累計正解率，及び正解ラベルと比べた際の推定ラベルを張った区間の時間長の割合を示している.
 
-同様の実験を3回行った結果1回だけ不正解があり，全体の正解率は98.0％となった.
+同様の実験を3回行った結果1回だけ不正解があり，全体の正解率は99.2％となった.
 誤判定された400秒付近のグラフを見てみると他と比べて受信電波強度の変化が小さく，安定センシング区間と判定されていない.
 
 
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8cm]{refrigerator_graph.png}
     \caption{冷蔵庫の状態推定結果グラフ}
@@ -380,7 +380,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 %@@@@@@@@@@@@@@@@@@@@
 %  ポジティブな状態だけ検出できた割合の結果　ではなくネガティブポジティブ両方の検出数から割合を出すべきでは？？？？
 %@@@@@@@@@@@@@@@@@@@@
-\begin{table}[htb]
+\begin{table}[tbh]
     \begin{center}
         \caption{冷蔵庫の開閉における状態推定精度}
         \label{refrigerator_fig}
@@ -413,7 +413,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 %@@@@@@@@@@@@@@@@@@@@@@@
 
 
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8cm]{kinko_position_fig.png}
     \caption{金庫と受信機の位置関係図}
@@ -423,19 +423,19 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 
 推定結果を図\ref{kinko_graph}に，正解率の一覧を表\ref{kinko_fig}に示す.
 図\ref{kinko_graph}の白色の範囲は安定センシング区間ではない状態を 緑色の範囲はネガティブな状態(蓋が閉まっている状態)を 赤色の範囲はポジティブな状態(蓋が開いている状態)を示しており，図中の番号は図\ref{kinko_position}内の番号と対応している.
-また，表\ref{kinko_fig}には各試行における正解率とその累計正解率，及び推定ラベルを張った区間のうち正解した区間の割合を示している.
+また，表\ref{kinko_fig}には各試行における正解率とその累計正解率，及び正解ラベルと比べた際の推定ラベルを張った区間の時間長の割合を示している.
 
-同様の実験を3回行った結果，N　％　の状態推定精度であった.
+同様の実験を3回行った結果，93.8％の状態推定精度であった.
 正解ラベル通りの推定ができていなかった2番の場所での推定結果を見ると，蓋が閉まった後も数秒間蓋が開いていると推定されてしまっている.
 
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8cm]{kinko_graph.png}
     \caption{金庫の状態推定結果グラフ}
     \label{kinko_graph}
 \end{figure}
 
-\begin{table}[htb]
+\begin{table}[tbh]
     \begin{center}
         \caption{金庫の開閉における状態推定精度}
         \label{kinko_fig}
@@ -468,7 +468,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 この時安定センシング区間を判定のための閾値はそれぞれ，値の閾値は±0.25，時間の閾値は5秒に設定した.
 
 
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8cm]{zaisu_position.png}
     \caption{座椅子と受信機の位置関係図}
@@ -476,7 +476,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 \end{figure}
 
 
-\begin{figure}[bht]
+\begin{figure}[tbh]
     \centering
     \includegraphics[width=8cm]{zaisu_graph.png}
     \caption{座椅子の状態推定結果グラフ}
@@ -484,7 +484,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 \end{figure}
 
 
-\begin{table}[bht]
+\begin{table}[tbh]
     \begin{center}
         \caption{座椅子への着席における状態推定精度}
         \label{chair_fig}
@@ -502,8 +502,8 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 
 
 図\ref{chair_graph}の白色の範囲は安定センシング区間ではない状態を 緑色の範囲はネガティブな状態(人が座っている状態)を 赤色の範囲はポジティブな状態(人が座っていない状態)を示しており，図中の番号は図\ref{zaisu_position}内の番号と対応している.
-また，表\ref{chair_fig}には各試行における正解率とその累計正解率，及び推定ラベルを張った区間のうち正解した区間の割合を示している.
-同様の行動を3回行った結果，N　％　の精度で状態推定を行う事ができた.
+また，表\ref{chair_fig}には各試行における正解率とその累計正解率，及び正解ラベルと比べた際の推定ラベルを張った区間の時間長の割合を示している.
+同様の行動を3回行った結果，98.9％の精度で状態推定を行う事ができた.
 
 
 %ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -511,19 +511,14 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 
 % 評価実験を踏まえた適用範囲や限界性能を試す章
 \section{評価実験の考察}
-評価実験の結果，冷蔵庫や金庫，座椅子ではそれぞれ　N ％　以上の精度で推定可能であった.
-冷蔵庫と金庫の実験で上手く推定出来なかった箇所では安定センシング区間の判定が上手くできていない箇所がほとんどであった.
-冷蔵庫や金庫の状態推定の一部では安定センシング区間の判定が上手くいっておらず，それにより推定結果も異なる.
-BLEビーコン特有の周期的な電波強度の変化が安定センシング区間の判定に影響するため少し大きめの閾値を取った結果，電波強度の変化がこの閾値を超えられない所があった.
-そのため状態が変化した後であっても前の状態が続いていると判定されてしまい誤判定が発生したと考えられる.
-安定センシング区間の判定に用いる閾値を見直す事により精度を高められるだろう.
-座椅子の状態変化時には受信電波強度が大きく変化した.
-人体は水分を含んでいるため電波をさえぎりやすいため人が座っていない時と座っている時の電波強度の変化が大きく，はっきりと差が出ていたためビーコン特有の周期的な変化に影響されず推定ができたと考えられる.
-
-
-本稿の評価実験の対象は金属や人体などでビーコンの電波が遮られるためで電波強度が大きく変化した.
-そのため本手法が適用できる.
-しかし電波をあまり遮らない材質のものであれば，状態変化が起きても電波強度に変化が現れないため本手法を適用できない.
+評価実験の結果，冷蔵庫の開閉は99.2％，金庫の開閉は93.8％，座椅子の着座は98.9％の精度で推定可能であった.
+座椅子の状態変化では受信電波強度が大きく変化したため，安定センシング区間が正解ラベルに近い状態で判定されており，冷蔵庫や金庫より高い推定精度であった.
+人体は水分を含んでいるため電波をさえぎりやすく人が座っていない時と座っている時の電波強度の変化が大きい.
+それによりBLEビーコン特有の周期的な電波強度の変化に影響されず推定ができたと考えられる.
+しかし冷蔵庫と金庫の開閉では安定センシング区間の判定が上手くできていなかったため誤推定された箇所があった.
+これはBLEビーコン特有の周期的な電波強度の変化が安定センシング区間の判定に影響するため，少し大きめの閾値を取った結果，電波強度の変化がこの閾値を超えられなかったと考えられる.
+そのため状態が変化した後であっても前の状態が続いていると判定されてしまい安定センシング区間の判定がうまくされず，推定結果にも影響を及ぼした.
+誤推定される箇所がまだあるので推定精度を更に高めるため，安定センシング区間の判定に用いる閾値を見直す必要があるだろう.
 
 
 %ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -539,12 +534,12 @@ BLEビーコン特有の周期的な電波強度の変化が安定センシン�
 また，BLEビーコンに指向性を持たせるアダプタを取り付けて電波強度変化の特徴を大きく変化させ，電波を通しやすい材質のモノであっても推定が行えるようにした.
 
 評価実験では冷蔵庫や金庫，座椅子にBLEビーコンを設置し日常での使用を模倣した開閉や着座動作を行い，推定精度を確かめた.
-冷蔵庫の開閉では　N　％　の精度で，金庫の開閉では　M ％　，座椅子の着座では　M　％　の精度で推定が出来た.
+冷蔵庫の開閉では99.2％，金庫の開閉では93.8％，座椅子の着座では98.9％の精度で推定が出来た.
 金庫や座椅子では移動を伴っていたが推定が可能であった.
 しかし電波強度の変化の具合により推定が不完全である部分もあるため，安定センシング区間の判定や状態判定のための閾値を見直し改善を図っていく.
 
 今後の課題として，現状では安定センシング区間の判定に用いる閾値は手動で設定しなければならず，適切な値を探すためにあらかじめ何度か試行させる必要がある.
-よってアルゴリズムを改良して自動で適切な閾値を設定する手法の確立を目指す.
+よってアルゴリズムを改良し自動で適切な閾値を設定する手法の確立を目指す.
 
 
 %ーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -559,6 +554,9 @@ BLEビーコン特有の周期的な電波強度の変化が安定センシン�
     \bibitem{energy}山田祐輔，加藤丈和，松山隆司. スマートタップネットワークを用いた家電の電力消費パターン解析に基づく人物行動推定，研究報告ユビキタスコンピューティングシステム（UBI），Vol. 2011-UBI-31，No. 4，pp. 1-6，2011.
     \bibitem{WifiChannel}尾原和也，前川卓也，村上友規，アベセカラヒランタ. Wi-Fiチャネル状態情報を用いた教師無し学習によるドアの開閉検知手法，研究報告ユビキタスコンピューティングシステム（UBI），Vol. 2018-UBI-60，No. 1，pp. 1-7，2018.
     \bibitem{bleUse}LINE公式ブログ: 入手先 〈\url{http://official-blog.line.me/ja/archives/73098915.html}〉 (参照 2019 年 4 月 24 日).
+    \bibitem{en-AreaUsed}Rachael Purta，Aaron Striegel. Estimating dining hall usage using bluetooth low energy beacons，UbiComp '17 Proceedings of the 2017 ACM International Joint Conference on Pervasive and Ubiquitous Computing and Proceedings of the 2017 ACM International Symposium on Wearable Computers，pp. 518-523，2017.
+    \bibitem{Finding_by_Counting} Subham De，Shreyans Chowdhary，Aniket Shirke，Yat Long Lo，Robin Kravets，Hari Sundaram.Finding by Counting: A Probabilistic Packet Count Model for Indoor Localization in BLE Environments，WiNTECH '17 Proceedings of the 11th Workshop on Wireless Network Testbeds，Experimental evaluation CHaracterization，pp. 67-74，October 20 - 20， 2017. 
+    \bibitem{dakoku_system}梶岡慎輔，山本大介，打矢隆弘，齋藤彰一，松尾啓志，内匠逸.BLE ビーコンを用いた位置推定による 打刻システムの運用と課題，研究報告インターネットと運用技術（IOT），Vol.2016-IOT-35，No. 12，pp.1-7，2016.
     \bibitem{IoMT}堀川三好，工藤大希，岡本東，村田嘉利. 移動するモノを対象とした Internet of Things の提案，第80回全国大会講演論文集，Vol. 2018，No. 1，pp. 471-472，2018.
     \bibitem{tandem}浦野健太，廣井慧，梶克彦，河口信夫. 配布型BLEタグとタンデムスキャナを用いた屋内位置推定手法，情報処理学会論文誌，Vol. 60，No. 1，pp. 58-75，2019.
     \bibitem{blespot}渡邉洸，高橋雄太，大坪敦，藤本まなと，荒川豊，安本慶一. BLEビーコンと反響音センシングによる屋内スポット推定，マルチメディア、 分散協調とモバイルシンポジウム2018論文集，Vol. 2018，pp. 620-626，2018.
@@ -566,9 +564,7 @@ BLEビーコン特有の周期的な電波強度の変化が安定センシン�
     \bibitem{en-door}Hsi-Yuan Tsai，Guan-Heng Chen，Huang-Chen Lee. Using low-cost，non-sensor-equipped BLE beacons to track people's movements，IPSN '17 Proceedings of the 16th ACM/IEEE International Conference on Information Processing in Sensor Networks，pp. 291-292，2017.
     \bibitem{BLEpkpk}池田翔太，梶克彦. BLEビーコンをパカパカ，マルチメディア，分散協調とモバイルシンポジウム2016論文集，Vol. 2016，pp. 899-904，2016.
     \bibitem{sensing-area}梶克彦，河口信夫. 安定センシング区間検出に基づく3次元歩行軌跡推定手法，情報処理学会論文誌，Vol. 57，No. 1，pp. 12-24，2016.
-    \bibitem{en-AreaUsed}Rachael Purta，Aaron Striegel. Estimating dining hall usage using bluetooth low energy beacons，UbiComp '17 Proceedings of the 2017 ACM International Joint Conference on Pervasive and Ubiquitous Computing and Proceedings of the 2017 ACM International Symposium on Wearable Computers，pp. 518-523，2017.
-    \bibitem{Finding_by_Counting} Subham De，Shreyans Chowdhary，Aniket Shirke，Yat Long Lo，Robin Kravets，Hari Sundaram.Finding by Counting: A Probabilistic Packet Count Model for Indoor Localization in BLE Environments，WiNTECH '17 Proceedings of the 11th Workshop on Wireless Network Testbeds，Experimental evaluation CHaracterization，pp. 67-74，October 20 - 20， 2017.
-    \bibitem{dakoku_system}梶岡慎輔，山本大介，打矢隆弘，齋藤彰一，松尾啓志，内匠逸.BLE ビーコンを用いた位置推定による 打刻システムの運用と課題，研究報告インターネットと運用技術（IOT），Vol.2016-IOT-35，No. 12，pp.1-7，2016.
+    
 \end{thebibliography}
 
 
