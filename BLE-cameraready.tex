@@ -138,28 +138,28 @@ BluetoothLowEnergyの技術は近年，広告配信や位置推定など様々�
 
 
 % 図の挿入
-\begin{figure}[t]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=3cm]{ble.png}
     \caption{BLEビーコン}
     \label{beacon}
    \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=7cm]{regisW2.png}
     \caption{冷蔵庫の状態と設置したビーコン}
     \label{freezer}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=7cm]{kinkoW.png}
     \caption{金庫の状態と設置したビーコン}
     \label{safe}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8cm]{zaisuW.png}
     \caption{座椅子の状態と設置したビーコン}
@@ -204,14 +204,14 @@ BLEビーコンの取り付け位置や付け方を変えると電波強度の�
 例えば箱型で蓋の開閉を行う金庫のようなものであれば，BLEビーコンを箱内部の底に設置する場合と蓋の裏に設置する場合が考えられる(図\ref{adapter}).
 さらに，対象の材質が電波を通しやすいために状態変化しても電波強度に大きな変化が現れないモノもあるため，図\ref{adapter}のように電波に指向性をもたせるアダプタを取り付け電波強度にはっきりとした変化が出るようにする.
 % 図の挿入
-\begin{figure}[b]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8cm]{adapta_compare2.png}
     \caption{指向性アダプタ有り無しの画像}
     \label{adapter}
 \end{figure}
 % 図の挿入
-\begin{figure}[b]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8cm]{adapta.png}
     \caption{本研究で使用した指向性アダプタ}
@@ -228,7 +228,7 @@ BLEビーコンを金庫内部の底につけた場合にはあまり大きな�
 
 
 % 図の挿入
-\begin{figure}[h]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8cm]{in-out.png}
     \caption{ビーコン取り付け位置毎の電波強度変化}
@@ -243,7 +243,7 @@ BLEビーコンを金庫内部の底につけた場合にはあまり大きな�
 本手法ではBLEビーコンから発せられる電波をスマートフォンで受信し，その受信強度の値から状態を推定する.
 図\ref{bank-opcl}は金庫の開閉を行ったときの電波強度の値に，移動平均を用いたローパスフィルタをかけて小さな揺らぎを除去したグラフである.
 
-\begin{figure}[b]
+\begin{figure}[bht]
  \centering
  \includegraphics[width=8cm]{lowpath_compare.png}
  \caption{ローパスフィルタ適用前後の電波強度グラフ}
@@ -279,7 +279,7 @@ BLEビーコンを金庫内部の底につけた場合にはあまり大きな�
 
 
 % 図の挿入
-\begin{figure}[h]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8.5cm]{bokoboko.png}
     \caption{BLEビーコンを遮蔽物のない状態で測定した電波強度グラフ}
@@ -321,7 +321,7 @@ BLEビーコンを設置する対象は，冷蔵庫，金庫，座椅子とし�
 
 \subsection{実験端末の選定}
 
-\begin{figure}[b]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8cm]{mix.png}
     \caption{機種ごとの精度比較}
@@ -349,7 +349,7 @@ Bluetoothのセンサ精度は端末毎に異なるため，実験に用いる�
 %時間と閾値の話をして
 
 
-\begin{figure}[h]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8cm]{refrigerator_position.png}
     \caption{冷蔵庫と受信機の位置関係図}
@@ -369,7 +369,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 誤判定された400秒付近のグラフを見てみると他と比べて受信電波強度の変化が小さく，安定センシング区間と判定されていない.
 
 
-\begin{figure}[ht]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8cm]{refrigerator_graph.png}
     \caption{冷蔵庫の状態推定結果グラフ}
@@ -413,7 +413,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 %@@@@@@@@@@@@@@@@@@@@@@@
 
 
-\begin{figure}[h]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8cm]{kinko_position_fig.png}
     \caption{金庫と受信機の位置関係図}
@@ -428,7 +428,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 同様の実験を3回行った結果，N　％　の状態推定精度であった.
 正解ラベル通りの推定ができていなかった2番の場所での推定結果を見ると，蓋が閉まった後も数秒間蓋が開いていると推定されてしまっている.
 
-\begin{figure}[ht]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8cm]{kinko_graph.png}
     \caption{金庫の状態推定結果グラフ}
@@ -468,7 +468,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 この時安定センシング区間を判定のための閾値はそれぞれ，値の閾値は±0.25，時間の閾値は5秒に設定した.
 
 
-\begin{figure}[h]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8cm]{zaisu_position.png}
     \caption{座椅子と受信機の位置関係図}
@@ -476,7 +476,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[bht]
     \centering
     \includegraphics[width=8cm]{zaisu_graph.png}
     \caption{座椅子の状態推定結果グラフ}
@@ -484,7 +484,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
 \end{figure}
 
 
-\begin{table}[h]
+\begin{table}[bht]
     \begin{center}
         \caption{座椅子への着席における状態推定精度}
         \label{chair_fig}
