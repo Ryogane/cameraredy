@@ -109,8 +109,9 @@ BLEビーコンは小型・省電力なため長期間の稼働が可能であ�
 
 しかし，小さな箱の開閉や移動した先での状態変化を推定する事は難しいため，我々はBLEビーコンを用いて電波強度の変化から状態変化の推定を行うことにした.
 BluetoothLowEnergyの技術は近年，広告配信や位置推定など様々な用途に使われている.
-例えばSNSサービスを提供しているLINEでは，BLEビーコンを使用して決済ができるサービスを提供している.\cite{bleUse}
-
+例えばSNSサービスを提供しているLINEでは，BLEビーコンを使用して決済ができるサービスを提供している\cite{bleUse}.
+その他にもBLEビーコンの電波は在室検知や位置，状態推定など多くの研究に利用されている.
+在室検知では各個人が
 BLEビーコンの受信機との距離による減衰や，障害物による電波の減衰などによって変化する電波強度をもとに，複数の受信機を用いて位置の推定や状態の推定をする研究が数多く行われている\cite{IoMT}，\cite{blespot}，\cite{en-door}.%，\cite{tandem}，，\cite{LANgate}，.
 
 これらで利用されているように，BLEビーコンの電波は微弱であるため数mの距離の変化や障害物などにより電波の減衰が起こる.
@@ -525,7 +526,7 @@ BLEビーコン特有の周期的な電波強度の変化が安定センシン�
 
 本稿の評価実験の対象は金属や人体などでビーコンの電波が遮られるためで電波強度が大きく変化した.
 そのため本手法を適用することが出来る.
-しかし電波をあまり遮らない材質のものであれば，状態変化が起きても電波強度に変化が現れないため本手法を適用できないモノもある.
+しかし電波をあまり遮らない材質のものであれば，状態変化が起きても電波強度に変化が現れないため本手法を適用できない.
 
 % 本実験で行った推定対象物は金属や人体など電波を遮断しやすいモノであったため比較的電波強度に大きな差が出ていた.
 % しかしBLEビーコンの電波があまり遮断されないダンボールや椅子などではあまり電波強度に変化が現れないため本手法を適用することが出来ない.
@@ -577,7 +578,9 @@ BLEビーコン特有の周期的な電波強度の変化が安定センシン�
     \bibitem{en-door}Hsi-Yuan Tsai，Guan-Heng Chen，Huang-Chen Lee. Using low-cost，non-sensor-equipped BLE beacons to track people's movements，IPSN '17 Proceedings of the 16th ACM/IEEE International Conference on Information Processing in Sensor Networks，pp. 291-292，2017.
     \bibitem{BLEpkpk}池田翔太，梶克彦. BLEビーコンをパカパカ，マルチメディア，分散協調とモバイルシンポジウム2016論文集，Vol. 2016，pp. 899-904，2016.
     % \bibitem{sensing-area}梶克彦，河口信夫. 安定センシング区間検出に基づく3次元歩行軌跡推定手法，情報処理学会論文誌，Vol. 57，No. 1，pp. 12-24，2016.
-    %\bibitem{en-AreaUsed}Rachael Purta，Aaron Striegel. Estimating dining hall usage using bluetooth low energy beacons，UbiComp '17 Proceedings of the 2017 ACM International Joint Conference on Pervasive and Ubiquitous Computing and Proceedings of the 2017 ACM International Symposium on Wearable Computers，pp. 518-523，2017.
+    \bibitem{en-AreaUsed}Rachael Purta，Aaron Striegel. Estimating dining hall usage using bluetooth low energy beacons，UbiComp '17 Proceedings of the 2017 ACM International Joint Conference on Pervasive and Ubiquitous Computing and Proceedings of the 2017 ACM International Symposium on Wearable Computers，pp. 518-523，2017.
+    \bibitem{Finding_by_Counting} Subham De，Shreyans Chowdhary，Aniket Shirke，Yat Long Lo，Robin Kravets，Hari Sundaram.Finding by Counting: A Probabilistic Packet Count Model for Indoor Localization in BLE Environments，WiNTECH '17 Proceedings of the 11th Workshop on Wireless Network Testbeds，Experimental evaluation CHaracterization，pp. 67-74，October 20 - 20， 2017. 
+    \bibitem{dakoku_system}梶岡慎輔，山本大介，打矢隆弘，齋藤彰一，松尾啓志，内匠逸.BLE ビーコンを用いた位置推定による 打刻システムの運用と課題，研究報告インターネットと運用技術（IOT），Vol.2016-IOT-35，No. 12，pp.1-7，2016.
 \end{thebibliography}
 
 
