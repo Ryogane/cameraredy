@@ -111,9 +111,8 @@ BLEビーコンは小型・省電力なため長期間の稼働が可能であ�
 BluetoothLowEnergyの技術は近年，広告配信や位置推定など様々な用途に使われている.
 例えばSNSサービスを提供しているLINEでは，BLEビーコンを使用して決済ができるサービスを提供している.\cite{bleUse}
 
+BLEビーコンの受信機との距離による減衰や，障害物による電波の減衰などによって変化する電波強度をもとに，複数の受信機を用いて位置の推定や状態の推定をする研究が数多く行われている\cite{IoMT}，\cite{blespot}，\cite{en-door}.%，\cite{tandem}，，\cite{LANgate}，.
 
-
-BLEビーコンの受信機との距離による減衰や，障害物による電波の減衰などによって変化する電波強度をもとに，複数の受信機を用いて位置の推定や状態の推定をする研究が数多く行われている\cite{IoMT}，\cite{tandem}，\cite{blespot}，\cite{LANgate}，\cite{en-door}.
 これらで利用されているように，BLEビーコンの電波は微弱であるため数mの距離の変化や障害物などにより電波の減衰が起こる.
 この現象を利用し我々は日常の生活空間内におけるモノの状態変化推定を行う.
 
@@ -449,6 +448,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
         2 & 100％ & 7 & 0 \\ \hline \hline
         回数でみた累計正解率 & \multicolumn{3}{c|}{100％} \\ \hline \hline
         推定ラベルの正解割合 & \multicolumn{3}{c|}{93.8％} \\ \hline
+
         \end{tabular}
     \end{center}
 \end{table}
@@ -497,6 +497,7 @@ BLEビーコンを扉の棚へ置いただけではあまり電波強度に変�
         2 & 100％ & 7 & 0 \\ \hline \hline
         回数でみた累計正解率 & \multicolumn{3}{c|}{100％} \\ \hline \hline
         推定ラベルの正解割合 & \multicolumn{3}{c|}{98.9％} \\ \hline
+        
         \end{tabular}
     \end{center}
 \end{table}
@@ -575,8 +576,7 @@ BLEビーコン特有の周期的な電波強度の変化が安定センシン�
     \bibitem{LANgate}梶 克彦，河口 信夫. 無線LAN環境特異点に基づくゲート通過検出手法，情報処理学会論文誌 Vol. 55，No. 1，pp. 366-377，2014.
     \bibitem{en-door}Hsi-Yuan Tsai，Guan-Heng Chen，Huang-Chen Lee. Using low-cost，non-sensor-equipped BLE beacons to track people's movements，IPSN '17 Proceedings of the 16th ACM/IEEE International Conference on Information Processing in Sensor Networks，pp. 291-292，2017.
     \bibitem{BLEpkpk}池田翔太，梶克彦. BLEビーコンをパカパカ，マルチメディア，分散協調とモバイルシンポジウム2016論文集，Vol. 2016，pp. 899-904，2016.
-    \bibitem{sensing-area}梶克彦，河口信夫. 安定センシング区間検出に基づく3次元歩行軌跡推定手法，情報処理学会論文誌，Vol. 57，No. 1，pp. 12-24，2016.
-    \bibitem{ips-chube}吉澤実，高崎航，大村廉. 加速度ベース行動認識におけるレスポンス時間短縮のためのパラメータ検討，マルチメディア、分散協調とモバイルシンポジウム2013論文集，Vol. 2013，pp. 647-654，2013.
+    % \bibitem{sensing-area}梶克彦，河口信夫. 安定センシング区間検出に基づく3次元歩行軌跡推定手法，情報処理学会論文誌，Vol. 57，No. 1，pp. 12-24，2016.
     %\bibitem{en-AreaUsed}Rachael Purta，Aaron Striegel. Estimating dining hall usage using bluetooth low energy beacons，UbiComp '17 Proceedings of the 2017 ACM International Joint Conference on Pervasive and Ubiquitous Computing and Proceedings of the 2017 ACM International Symposium on Wearable Computers，pp. 518-523，2017.
 \end{thebibliography}
 
