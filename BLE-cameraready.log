@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.4.8)  10 MAY 2019 17:01
+This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.4.8)  10 MAY 2019 17:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -258,10 +258,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  1707 strings out of 493226
  23949 string characters out of 6144096
- 94266 words of memory out of 5000000
+ 95266 words of memory out of 5000000
  5660 multiletter control sequences out of 15000+600000
  36593 words of font info for 162 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  30i,10n,21p,446b,495s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on BLE-cameraready.dvi (8 pages, 59028 bytes).
+Output written on BLE-cameraready.dvi (8 pages, 58940 bytes).
