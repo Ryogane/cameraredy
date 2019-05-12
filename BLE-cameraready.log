@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.4.8)  12 MAY 2019 22:20
+This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.4.8)  12 MAY 2019 22:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -178,14 +178,14 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 File: abst.jpeg Graphic file (type bmp)
 <abst.jpeg>
 
-Overfull \hbox (1.72952pt too wide) in paragraph at lines 92--93
+Overfull \hbox (1.72952pt too wide) in paragraph at lines 93--94
  [][] 
  []
 
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <8.13184> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 93.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 94.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <8.13184> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 93.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 94.
 [2]
 File: ble.png Graphic file (type bmp)
 <ble.png>
@@ -201,9 +201,9 @@ LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9.61035> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 187.
 File: adapta_compare2.png Graphic file (type bmp)
 <adapta_compare2.png>
+ [3]
 File: adapta.png Graphic file (type bmp)
 <adapta.png>
- [3]
 File: in-out.png Graphic file (type bmp)
 <in-out.png>
 File: lowpath_compare.png Graphic file (type bmp)
@@ -265,6 +265,6 @@ Here is how much of TeX's memory you used:
  5661 multiletter control sequences out of 15000+600000
  36593 words of font info for 162 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 30i,11n,25p,443b,495s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,10n,21p,443b,495s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on BLE-cameraready.dvi (8 pages, 59368 bytes).
+Output written on BLE-cameraready.dvi (8 pages, 60000 bytes).
